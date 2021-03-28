@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Uber rides prediction</title>
+
+</head>
+<body>
+<h1 style="color:blue; text-align:center;">UBER RIDES PREDICTION</h1>
+<div style="text-align:center;">
+<form action="{% url 'test' %}" method="post">
+    {% csrf_token %}
+    Price per week:
+    <input type="number" name="ppw"><br/><br/>
+    Population:
+    <input type="number" name="pn"><br/><br/>
+    Monthly Income:
+    <input type="number" name="mi"><br/><br/>
+    Average parking per month:
+    <input type="number" name="appm"><br/><br/>
+    <input type="submit" value="Predict" style="color:blue">
+
+    {% if result %}
+
+    <h2 style="color:blue;">No. of rides = {{result}}</h2>
+
+    {% endif %}
+
+</form>
+    </div>
+
+</body>
+</html>
